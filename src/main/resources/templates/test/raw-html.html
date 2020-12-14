@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en"
+    xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .right {
+            color:green;
+        }
+        .wrong {
+            color:red;
+        }
+        .underline {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<h1 th:if="${isChecked}">Hello</h1>
+
+
+<h1 th:class="${isChecked ? 'right' : 'wrong'}"
+    th:classappend="${!isChecked} ? 'underline' : ''">My Answer</h1>
+<input type="checkbox" th:checked="${isChecked}">
+<select name="gender" id="gender">
+    <option value="M" th:selected="${gender eq 'M'}">Male</option>
+    <option value="F" th:selected="${gender eq 'F'}">Female</option>
+</select>
+
+</body>
+</html>

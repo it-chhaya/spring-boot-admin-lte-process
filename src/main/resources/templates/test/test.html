@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Test Page</title>
+    <style>
+        .right {
+            color: green;
+        }
+
+        .wrong {
+            color: red;
+        }
+
+        .underline {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+<h1 th:inline="text">
+    [[${username}]],
+    it is our sincere pleasure...
+</h1>
+<h1 class="text-html">Rendering</h1>
+
+<p th:class="${answer ? 'right' : 'wrong'}"
+   th:classappend="${!answer ? 'underline' : ''}"
+   th:attr="data-row-id=${answerId}"
+   th:text="${answerText}">Your answer</p>
+<input type="text" th:disabled="${answer}">
+<label><input type="checkbox" name="active" th:checked="${answer}"> Active</label>
+<select name="gender" id="gender">
+    <option value="">Select gender from the list</option>
+    <option value="M" th:selected="${gender == 'M'}">Male</option>
+    <option value="F" th:selected="${gender == 'F'}">Female</option>
+</select>
+
+<ul>
+    <li th:each="err : ${#fields.errors('id')}" th:text="${err}" />
+    <li th:each="err : ${#fields.errors('name')}" th:text="${err}" />
+</ul>
+
+<form action="#" th:action="@{/saveStudent}" th:object="${student}" method="post">
+    <table border="1">
+        <tr>
+            <td><label th:text="#{msg.id}" /></td>
+            <td><input type="number" th:field="*{id}" /></td>
+        </tr>
+        <tr>
+            <td><label th:text="#{msg.name}" /></td>
+            <td><input type="text" th:field="*{name}" /></td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Submit" /></td>
+        </tr>
+    </table>
+</form>
+
+
+
+<script th:inline="javascript">
+    //var username = /*[[${username}]]*/ "John Deo";
+    var username = [[${username}]]
+    var textHtml = document.getElementsByClassName('text-html')
+    textHtml[0].innerHTML = username
+</script>
+
+</body>
+</html>

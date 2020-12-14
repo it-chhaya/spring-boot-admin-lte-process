@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/admin-layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div layout:fragment="mainContent">
+
+    <form th:action="@{/admin/user/add}" method="post" th:object="${user}" >
+        <input type="text" placeholder="username" th:field="*{username}">
+        <span th:if="${#fields.hasErrors('username')}"
+              th:text="${#fields.errors('username').get(0)}">A</span>
+        <input type="password" placeholder="password" th:field="*{password}">
+        <span th:if="${#fields.hasErrors('password')}"
+              th:text="${#fields.errors('password').get(0)}">B</span>
+        <input type="submit" value="Save">
+    </form>
+
+</div>
+</body>
+</html>

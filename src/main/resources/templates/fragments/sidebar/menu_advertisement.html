@@ -1,0 +1,23 @@
+<li class="nav-item has-treeview" xmlns:th="http://www.thymeleaf.org">
+    <a href="#" class="nav-link">
+        <i class="nav-icon fab fa-adversal"></i>
+        <p>
+            Advertisement
+            <i class="right fas fa-angle-left"></i>
+        </p>
+    </a>
+    <ul class="nav nav-treeview">
+        <li class="nav-item">
+            <a th:href="@{/admin/adv/adv-on-page}" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Adv on Page</p>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a th:href="@{/admin/user/upload-adv-image}" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Upload Adv Image</p>
+            </a>
+        </li>
+    </ul>
+</li>
