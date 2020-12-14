@@ -8,12 +8,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 class SpringBootThymeleafApplicationTests {
 
-    @Autowired
-    UserRepository userRepository;
-
     @Test
     void contextLoads() {
-        System.out.println("USER = " + userRepository.findByUsername("chhaya"));
+
     }
 
 }
