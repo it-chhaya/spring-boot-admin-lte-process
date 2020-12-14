@@ -10,7 +10,7 @@ phases:
   post_build:
     commands:
       - echo "Enter the post-build phase"
-      - mv build/libs/*.war /build/libs/ROOT.war
+      - mv build/libs/*.war build/libs/ROOT.war
 artifacts:
   files:
     - build/libs/ROOT.war
